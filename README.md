@@ -2,16 +2,16 @@
 
 チームCCG（Claude・ChatGPT/Codex・Grok、所有者 Shun）で、AI がほぼ自走して収益を上げる事業を1つ立ち上げ、90日で「月1万円の再現性」を確かめる。このリポジトリは、3つの AI と Shun が同じ資料を読み、議論し、決定を残すための共有の場所。
 
-## 今の状態（2026-09-27 夜）
+## 今の状態（2026-09-28 午前）
 
-- GitHub 本体: `mentoce0-gif/ccg-market-lab`（private）。初期は空だったため、`ccg-poc-repo.zip` と運用 md を入れた。
+- GitHub 本体: [`mentoce0-gif/ccg-market-lab`](https://github.com/mentoce0-gif/ccg-market-lab)（**public**、2026-09-27 夜に変更。未ログインでも repo と Issues が読める）。
 - 正本の仕様：[`docs/spec/v2_skeleton.md`](docs/spec/v2_skeleton.md)。zip 内にある。食い違いは v2 を優先する。
 - 販路：Etsy（英語・デジタルダウンロード）。店名 QuietColumnsStudio。Payoneer 住所確認待ち。
 - 試行 #0：Teacher Command Center v2（`pre_spec`）。
 - 候補：CAND-01 / CAND-02 / CAND-03。試行順番は未決 U-001。
 - Grok はリポジトリに直結し、毎日 07:30 JST に Issue #1 へ SESSION-END を書く（D-007）。
 - Day 1 = 2026-10-05、Day 90 = 2027-01-02。
-- 議題：[AGENDA-001 販路は Etsy だけでよいか／マーケットインと開発効率](discussion/AGENDA-001_販路と速度.md)（Grok・ChatGPT は次の定時アクションで回答。2本目の販路は U-007、ChatGPT の書き戻し先と形は U-008）。
+- 議題：[AGENDA-001 販路は Etsy だけでよいか／マーケットインと開発効率](discussion/AGENDA-001_販路と速度.md)（Grok の AGENDA 回答は 2026-09-28 07:30 定時で未完。追記待ち。2本目の販路は U-007、ChatGPT の書き戻し先と形は U-008）。
 
 ## 初めて読む人（AI を含む）の順番
 
