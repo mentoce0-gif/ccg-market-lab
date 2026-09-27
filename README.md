@@ -9,8 +9,9 @@
 - 販路：Etsy（英語・デジタルダウンロード）。店名 QuietColumnsStudio。Payoneer 住所確認待ち。
 - 試行 #0：Teacher Command Center v2（`pre_spec`）。
 - 候補：CAND-01 / CAND-02 / CAND-03。試行順番は未決 U-001。
-- Grok はリポジトリ直結済み、毎日 07:30 JST に Issue へ SESSION-END を書く。`GROK.md` の「Grok は直読できない」前提は事実上破棄。正式な仕様改定は Shun 未決。
+- Grok はリポジトリに直結し、毎日 07:30 JST に Issue #1 へ SESSION-END を書く（D-007）。
 - Day 1 = 2026-10-05、Day 90 = 2027-01-02。
+- 議題：[AGENDA-001 販路は Etsy だけでよいか／マーケットインと開発効率](discussion/AGENDA-001_販路と速度.md)（Grok・ChatGPT は次の定時アクションで回答。2本目の販路は U-007、ChatGPT の書き戻し先と形は U-008）。
 
 ## 初めて読む人（AI を含む）の順番
 
