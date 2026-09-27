@@ -1,14 +1,4 @@
-# CEO decisions
+# pointer
 
-None at bootstrap (2026-09-27).
-
-Format:
-
-```
-## D-YYYYMMDD-NN
-Date:
-Decision:
-Applies to:
-Rationale:
-Status: active | superseded
-```
+Canonical CEO decisions: [../decisions/log.md](../decisions/log.md)
+Do not duplicate decisions here.

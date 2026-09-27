@@ -1,18 +1,4 @@
-# Candidates
+# pointer
 
-None at bootstrap (2026-09-27).
-Owned-candidate rule: Grok must name one independent candidate weekly and move it toward LIVE or kill it with evidence.
-
-Format:
-
-```
-## C-NN Name
-Owner:
-Status: signal | candidate | trial | live | killed
-Job-to-be-done:
-Who pays:
-Current best evidence:
-Crowding check:
-Strongest falsification:
-Next test:
-```
+Canonical candidates: [../proposals/README.md](../proposals/README.md)
+TRIAL-00, CAND-01, CAND-02, CAND-03. Order is U-001 (unset).

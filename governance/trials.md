@@ -1,16 +1,4 @@
-# Active trials
+# pointer
 
-None at bootstrap (2026-09-27).
-
-Format:
-
-```
-## T-YYYYMMDD-NN
-Candidate:
-Hypothesis:
-Test:
-Pass condition:
-Fail condition:
-Owner:
-Status: planned | running | passed | failed | aborted
-```
+Canonical trial note: [../proposals/TRIAL-00_teacher-command-center.md](../proposals/TRIAL-00_teacher-command-center.md)
+Status: built, pre_spec, waiting for shop open + U-002.
