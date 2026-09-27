@@ -1,0 +1,278 @@
+# AI自走事業 一次シグナル収集
+
+- 役割: SNS一次シグナルの収集者。判定しない。
+- 対象期間: 2026-03-01 〜 2026-09-27（直近90日優先）
+- 作成日: 2026-09-27
+- 成功線（参照のみ）: 判定窓 Day61-90 の純収益 10,000円以上、課金10件以上、単一顧客30%以下、週5h以下、L3以上
+- ルール: URLと日付がないものは捨てた。数値は推測で補わない。Dは一覧に残しカテゴリ集計から除外。
+
+---
+
+## 使い方（次の段向け）
+
+1. このファイルをそのまま貼る。
+2. 判定・事業選定はしないこと。このファイルは証拠の棚卸し。
+3. Dグレードと [未検証] は母集団から外すか、別扱いする。
+4. 反例id は「同じカテゴリの失敗」であり、同一プロダクトの失敗ではないことが多い。
+
+### 証拠グレード
+
+| グレード | 意味 |
+|---|---|
+| A | 第三者が検証できる（公開ダッシュボード、プラットフォーム公表、Open Startup） |
+| B | スクリーンショットのみ |
+| C | 本人の主張のみ |
+| D | 「稼ぎ方」販売・講座・アフィリエイト誘導を伴う。一覧には残す。集計から除外 |
+
+---
+
+## 件数サマリー
+
+| 種別 | 目標 | 本ファイル | 注 |
+|---|---|---|---|
+| (a) 収益主張 | 30+ | 32 | A/Bは少ない。大半はC/D |
+| (b) 失敗・停止 | 15+ | 18 | 自走実験の失敗が厚い |
+| (c) 買い手の痛み | 20+ | 22 | 原文引用付き |
+| (d) 新販路・実取引 | 10+ | 12 | x402/Apify/オフセッションが中心 |
+| (a) のうち集計対象 A/B | — | 少数 | 下の温度表を優先 |
+
+A/B未達の理由: 期間内の「AIがほぼ自走で稼いでいる」個別事業で、第三者が検証できる一次が少ない。
+
+---
+
+## 表: 全件
+
+列: id / 種別 / カテゴリ / 要約 / 数値の主張 / 証拠 / 人手 / 日付 / URL / 反例id
+
+### (a) 収益の主張
+
+| id | 種別 | カテゴリ | 要約1行 | 数値の主張 | 証拠 | 人手の関与 | 日付 | URL | 反例id |
+|---|---|---|---|---|---|---|---|---|---|
+| A01 | a | 画像SaaS | Photo AIがソロで高MRRを繰り返し公開 | $100k–$150k/mo、2573 subscribers、利益率87%（本人過去投稿の引用） | B | 「Employees: 1 = just me」 | 2026-09-12時点の二次整理。本人投稿の一次は期間内に再掲多数。[未検証: 2026-03以降の最新スクショ原帖] | https://aituts.com/case-study/photo-ai-pieter-levels/ | B01 |
+| A02 | a | 画像SaaS | levelsioが年商+投資益$10Mと利益率を自己申告 | $10M/y、利益率94.5% | C | ソロ運営と自己申告 | 2026-09-23 | https://levels.io/passed-10m-revenue-investment-gains | B01 |
+| A03 | a | 公開Stripe検証集合 | 独立AIスタートアップの検証済取引を集計 | Rezi累計$9.1M / 現在MRR$293k、PROSP MRR$128k、Comp AI 30日$540k | A | 不明 | 2026-05-15 | https://saasxtra.com/the-state-of-ai-startups/ | B08 |
+| A04 | a | Upwork営業エージェントSaaS | LancerがUpwork営業自動化でMRR成長と自己申告 | 2ヶ月で$10k MRR、現在$20k MRR、2人 | C | 2人チーム。営業自動化が本体 | 2026-07-29 | https://www.indiehackers.com/post/tech/exiting-his-agency-and-hitting-10k-mrr-within-60-days-of-launching-his-saas-sTo5m9qfhxXbruvhBIyH | B02 |
+| A05 | a | 会話補助SaaS | ParakeetAIがリアルタイム回答SaaSで$1M MRR | $1MM/月、ユーザー150万+ | C | 「very small team」 | 2026-09-23 | https://www.indiehackers.com/post/tech/from-weekend-project-to-1m-mrr-in-two-years-YRaa1QlGTjaqh0XgzWkc | B12 |
+| A06 | a | 候補者向けAIマッチ | Jobricが本業並行で$3.3k MRR | $3,300 MRR、2026-05-01ローンチ | C | 「5am to 10pm」、本業あり | 2026-06-26 | https://www.indiehackers.com/post/tech/hitting-3-3k-mrr-in-two-months-while-working-a-full-time-job-eb5timbPqFlDFWZjha9i | B06 |
+| A07 | a | 開発者API | BeatAPIが25日で有料利用発生 | 売上$900超、口座744、課金利用284、トップアップ33 | C | 成長作業は創業者が実施と本文 | 2026-09-23 | https://www.indiehackers.com/post/we-got-744-signups-in-25-days-heres-the-growth-work-we-actually-did-ee48a3ecbf | B03 |
+| A08 | a | 営業ツール→エージェント | DeepReachAIがツール期に少額MRR | 250 users、~$150 MRR | C | 人が信頼設計と顧客展開 | 2026-09-20 | https://www.indiehackers.com/post/went-from-an-outreach-tool-to-building-an-outreach-agent-turns-out-thats-much-harder-93c4ab2e22 | B02 |
+| A09 | a | ソロAIベンチャー | Proxycurl創業者が次事業で先月売上を公開 | last mo $15K | C | ソロ。味とCSは人が較正とコメント | 2026-06-30 | https://www.indiehackers.com/post/how-im-building-a-1m-arr-venture-with-ai-as-a-bootstrapped-solo-founder-15k-revenue-last-mo-10m-last-exit-w-proxycurl-e604bbedda | B09 |
+| A10 | a | Slack連携エージェント基盤 | RunbearがICP特定後$400k ARR | $400k ARR、高単価20社超 | C | 不明 | IH掲載（ページに年月日なし） | https://www.indiehackers.com/post/dialing-in-an-ai-products-icp-and-growing-it-to-400k-arr-l3XkEjvP43kuUwjxzUnd | B08 |
+| A11 | a | 予約会話エージェント | 会話・予約自動化で月6k€前後 | 50 customers、6k€/month前後。途中SaaS純課金2k€、口コミ期3.5k€ | C | 初期はオンボード人手大、後にAIで削減と申告 | 2026-05-03 | https://reddit.com/r/SideProject/comments/1t2lp69/i_built_an_ai_agent_platform_to_automate/ | B10 |
+| A12 | a | 分数AI Ops受託 | 分数AI opsがEUR 2,000 MRR | EUR 2,000 MRR、入口$395/月 | C | 構築・メンテは自分、次に専門家1人追加予定 | 2026-04-16 | https://www.reddit.com/r/sideprojects/comments/1sn4b0c/finally_crossed_eur_2000_mrr_with_my_fractional/ | B04 |
+| A13 | a | 自律エージェント実験 | Olivia（エージェント名義）が79日で2件販売 | $54 total、2 sales、$27パックのみ。6月0件 | C→末尾に$397販売ありでD寄り | 「without human supervision」と自己申告 | 2026-06-16 | https://www.indiehackers.com/post/i-am-an-autonomous-ai-agent-79-days-2-sales-54-here-is-the-honest-data-5e48398e85 | B03 |
+| A14 | a | セキュリティ商品の自走GTM | LLMスキャナーの販売ループをエージェントに30日委任 | 「a handful of real orders」。3-USDT、sub-cent x402、8.1 XNO など | C | 人が設計・観測。売上は「early and small」 | 2026-09-19 | https://www.indiehackers.com/post/i-let-an-ai-agent-run-my-llm-security-products-whole-sales-loop-for-30-days-here-s-what-actually-broke-e16f092b52 | B05 |
+| A15 | a | コンテンツエージェント | コンテンツをエージェントに6ヶ月委任し流入34x | 流入34x。収益額の記載なし | C | レビューと計測は人 | 2026-09-18 | https://www.indiehackers.com/post/i-handed-my-content-marketing-to-agents-6-months-later-organic-traffic-is-34x-debec9b890 | B07 |
+| A16 | a | モックアップSaaS | フリー案件を製品化し年$150k | Bulk Mockup about $150k ARR、季節変動あり | C | 創業者がYouTube配布と拡張 | 2026-09-24 | https://www.indiehackers.com/post/tech/turning-a-freelance-gig-into-a-150k-yr-product-tDdZGZyiyNTztPfI2wkY | B01 |
+| A17 | a | AI Search最適化SaaS | MyZiaが2ヶ月で有料顧客150社超と報道整理 | 月約$5,000、150社超 | C（noteがStarter Storyを要約） | 不明 | 2026-09-25 | https://note.com/k_neko2304/n/n8dcfb81e12c4 | B08 |
+| A18 | a | 店舗問い合わせエージェント | クリニック等向け会話エージェント月約$10kと報道整理 | 2026-03時点 月約$10k、150社超 [未検証: Starter Story原典] | C | 不明 | 2026-09-25 | https://note.com/k_neko2304/n/n8dcfb81e12c4 | B10 |
+| A19 | a | 一人会社×AI部門 | 受託中心の一人会社がAIコスト月2万で月商約195万 | 2026-03 受託¥1,937,635 + 書籍¥21,403。AIコスト月¥20,000 | C | 承認・取捨は人。9事業はゼロ | 2026-06-23 | https://zenn.dev/joinclass/articles/1-ai-20260622220005-15275 | B09 |
+| A20 | a | note自動販売 | AI note量産で少額販売は発生 | 6ヶ月累計4,920円 / 4件 | C | 「承認するかどうか」だけと申告 | 2026-09-16 | https://note.com/kazuyuki_ai_lab/n/n4fcdcdd9a65b | B07 |
+| A21 | a | 検証記事内の本人公開 | 検証記事が引用した6ヶ月推移 | 0→1,200→8,400→23,600→41,200→67,800円。原帖未開のため孫引き扱い | C | 不明 | 2026-09-13（検証記事） | https://note.com/aikensyou/n/nb9271b080f16 | B07 |
+| A22 | a | ココナラ販売実績 | 検証記事がココナラ表示22件を確認 | 販売22件。金額は非公開 | B（プラットフォーム表示を著者が確認と記載） | 不明 | 2026-09-13 | https://note.com/aikensyou/n/nb9271b080f16 | B04 |
+| A23 | a | マーケットプレイス分配 | ApifyがStore開発者へ月次分配と公表 | パートナー頁「$1.6M paid out monthly」、別稿「September alone ... $563k」 | A | 開発者の保守は必要と文書 | 2026確認 | https://apify.com/partners/actor-developers | B11 |
+| A24 | a | マーケットプレイス分配 | Apify公式ヘルプが上位作者レンジを公表 | 「most successful ... over $10,000」MRR、「many others ... more than $1,000」。固有名なし | C（平台総論、個別店は非公開） | 不明 | 公式ヘルプ（日付欄なし） | https://help.apify.com/en/articles/8684010-make-money-publishing-your-actors-on-apify-store | B11 |
+| A25 | a | エージェント製品売上（チェーン側主張） | BaseがFelix等のエージェント売上を紹介 | Felix「more than $261,395 in revenue」[未検証: Felix一次] | C | 不明 | 2026-05-29 | https://cryptobriefing.com/agent-payments-growth-x402/ | B05 |
+| A26 | a | エージェントスタック | エージェンシーがAIスタックで人数削減後にライセンス販売 | チーム9→3、利益率25%→60%。自社課金額は「$2-3k/monthを取っていない」 | D（プレイブック配布誘導） | 人が監査・導入 | 2026-04-24 | https://x.com/iamcamengland/status/2047672746293764342 | B04 |
+| A27 | a | エージェント運用コスト対節約 | 10エージェントで月約$200、節約約$50kと自己申告 | Costs ~$200/month、Saves ~$50K/month | D（「AGENTS」でDM誘導） | 不明 | 2026-03-23 | https://x.com/eeelistar/status/2036009890435514618 | B06 |
+| A28 | a | ワークフロー解説（数値付き） | IH投稿がゴーストライティング等の月収レンジを列挙 | ゴースト$5k–$20k/mo、YouTube自動化$2k–$30k/mo 等 | D（二次まとめ＋再現手順） | 不明 | 2026-04-15 | https://www.indiehackers.com/post/5-ai-agent-workflows-actually-making-money-in-2026-with-real-numbers-ea266790ba | B07 |
+| A29 | a | サイドハッスル日数ランキング | 31人の初$1k到達日数を集計した記事 | voice-agent中央値14日、最速4日。Gumroad 1件$1,000を38時間 | C（記事がIH等を集約。個別原帖は未全開） | 不明 | 2026-07-05 | https://betonai.net/days-to-first-1000-with-ai-in-2026-11-side-hustles-ranked-by-how-fast-a-solo-operator-got-paid-receipts-from-31-operators/ | B02 |
+| A30 | a | Stripeマクロ | Stripeが$10MソロとAI新規を公表 | $10Mソロが2023比ほぼ3倍、AI支援サインアップ4倍 | A（プラットフォーム研究。個別事業ではない） | 該当せず | 2026-06-26 | https://www.saasrise.com/news/stripe-data-shows-10m-solopreneur-earners-tripled-in-two-years-ai-signups-up-4-0d7e12b0-204b-4ded-80a4-a2f194aa9e4a | B12 |
+| A31 | a | 大手エージェントARR | Cursor等のエージェント型製品ARR | Cursor $2B ARR（2026-02）、Harvey $195M 等 | A（報道の二次。個別ダッシュボード未確認） | 大企業人員 | 2026-09-25 | https://blockchain.news/news/ai-agents-29b-arr-trust-gap-verifiable-compute | B13 |
+| A32 | a | 講座・ロードマップ販売 | 「寝てても稼ぐ」「月100万」系note | 目標値のみ。実績の一次数値なし | D | 不明 | 2026-09-16〜21 | https://note.com/mute_sheep3232/n/n0e58cc791851 | B07 |
+
+### (b) 失敗・停止
+
+| id | 種別 | カテゴリ | 要約1行 | 数値の主張 | 証拠 | 人手の関与 | 日付 | URL | 反例id |
+|---|---|---|---|---|---|---|---|---|---|
+| B01 | b | 画像/エンタメSaaS急落とゼロ化 | fly.pieterが17日で$1M ARR後に$0/mへ | $87k MRR → bio上$0/m | C（本人bioと解説記事） | ソロ | 解説2026-06-24 | https://promptway.com/blog/pieter-levels-flight-sim-to-zero | — |
+| B02 | b | 自律営業エージェント | Groveが240通送信し売上0で閉鎖 | 240+ emails、1 reply、0 revenue。3/8と3/11に停止 | C | 当初「No human approval」 | 2026-03-11 | https://buttondown.com/the200dollarceo/archive/my-ai-venture-sent-240-emails-and-made-0-so-i/ | — |
+| B03 | b | 自律販売エージェント | Olivia 79日$54、6月0。別実験も$0継続 | $54 / 2 sales | C | 自律と自己申告。末尾有料セット | 2026-06-16 | https://www.indiehackers.com/post/i-am-an-autonomous-ai-agent-79-days-2-sales-54-here-is-the-honest-data-5e48398e85 | — |
+| B04 | b | 自律エージェント1ヶ月試験 | 予算と商品を渡して目標$700、結果$0 | Revenue $0。法律事務所25件シーケンス | C | 戦略は人、実行はエージェント | 2026-07-31 | https://automatonagency.com/insights/autonomous-agent-revenue-experiment-teardown | — |
+| B05 | b | エージェント決済ミスマッチ | Agentverse掲載で相互作用はあるが売上0 | Revenue $0、相互作用約149 | C | ソロ。レール接続を人が修正 | 2026-07-27 | https://www.indiehackers.com/post/shipped-a-solana-defi-api-agentverse-agent-as-a-solo-builder-0-revenue-real-traffic-wrong-payment-rails-13c20484fd | — |
+| B06 | b | 24h自律経営試験 | Saulに事業と資金を渡し新規売上0 | New revenue $0。残高$350→$250.50 | B（実験ログと数値表） | 24h後に人が停止 | 2026-07-30 | https://x.com/AlexReibman/status/2082878672906891578 | — |
+| B07 | b | コンテンツ自動量産 | note 107本自動公開で売上4,920円 | 4件 / 4,920円。50スキ超0本 | C | 承認のみと申告 | 2026-09-16 | https://note.com/kazuyuki_ai_lab/n/n4fcdcdd9a65b | — |
+| B08 | b | MCP/ストア掲載 | オンボーディングエージェントが6週で有料0 | 17 sign-ups、2会話、0 paying。MCPハブインストール0 | C | 不明 | 公開2026-04-30 / 更新2026-07-12 | https://blog.tobira.ai/built-ai-agent-product-onboarding-post-mortem/ | — |
+| B09 | b | AI経営提案の全採用 | 提案を全部実行し9事業売上ゼロ、売上構成悪化 | 9事業売上ゼロ。受託以外ほぼ死 | C | 人が全採用を決定 | 2026-06-06ほか | https://zenn.dev/joinclass/articles/ai-ai-20260604220005-60 | — |
+| B10 | b | コスト暴走 | 自律AIがGCPを短時間で7万円消費 | 7万円。放置なら月150万規模と事後計算 | C | 検知が翌朝の人 | 2026-06-03 | https://zenn.dev/i_ichi/articles/openclaw-agent-vol2 | — |
+| B11 | b | x402出来高急減 | 日次txが731k→57k、ゲーミング除外後は小さい | 実勢約$14k/day、エージェント月次$5k–$11kとも | A/B混在（Artemis/TRM等の引用） | 該当せず | 2026-09-25 / 2026-09-09 | https://blockchain.news/news/okx-ventures-ai-agent-economy-x402-transactions-drop-92-percent | — |
+| B12 | b | アプリストア | 新規アプリ提出+84%でもストア売上は減少とのHN議論 | 「App store revenue actually decreased」 | C（議論） | 該当せず | 2026直近HN | https://news.ycombinator.com/item?id=49793953 | — |
+| B13 | b | リーガルAIマージン | Harveyのマージンが+50%から-50%へとのBloomberg言及 | +50%→-50% | C（HNがBloombergを引用。本文ペイウォール） | 大企業 | 2026-09-21言及 | https://news.ycombinator.com/item?id=49841582 | — |
+| B14 | b | ショッピングエージェント封鎖 | AmazonがMeta Museのamazon.com買い物をブロック | 取引停止（件数非公開） | A（報道+HN） | 該当せず | 直近HN | https://news.ycombinator.com/item?id=49789982 | — |
+| B15 | b | 製品終了 | Relay、Notion Mail、ChatGPT Atlas、AnuNeko等が終了 | 売上数値なし。停止そのもの | A（公式/TechCrunch系） | 該当せず | 2026-07〜09 | https://techcrunch.com/2026/09/15/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/ | — |
+| B16 | b | 1円チャレンジ | 自走チームに稼がせても売上0 | 売上0円（公開2026-02-17は期間前だが継続記録として隣接） | C | 承認必須設計 | 2026-02-17 | https://zenn.dev/agent_workshop/articles/ai-1yen-challenge | — |
+| B17 | b | 営業ゼロ | 検証記事が「206件営業→0」を追跡 | 206→0 | C（検証記事。原投稿未開） | 不明 | 2026-09-13 | https://note.com/aikensyou/n/nb9271b080f16 | — |
+| B18 | b | 放置実験の多数死 | 6エージェントに$600、5死1生存との再流通 | 5/6停止 | C（一次はXスレと記事が明記。原スレ未固定） | 放置 | 2026-08-11紹介 | https://enterprisedna.co/resources/ai-pulse/ai-pulse-2026-08-11-the-abandoned-agent-that-s-still-alive-and-self-employed-fiv/ | — |
+
+### (c) 買い手の痛み
+
+原文は短く引用。数値の主張列は痛みの金額があれば記載。
+
+| id | 種別 | カテゴリ | 要約1行 | 数値の主張 | 証拠 | 人手の関与 | 日付 | URL | 反例id |
+|---|---|---|---|---|---|---|---|---|---|
+| C01 | c | 開発エージェント | 意図不明なままファイルを変える前に止まれ | なし | — | — | 2026-09-26 | https://x.com/Sourav_Bera_/status/2103971626257895812 | — |
+| C02 | c | 経理オペ | 請求書追い・突合・重複支払い検知なら払う | なし | — | — | 2026-09-26 | https://x.com/hi10pateltweet/status/2103897253320741362 | — |
+| C03 | c | エージェント課金 | 単発タスクが想定外請求になること自体が痛み | なし | — | — | 2026-09-23 | https://www.reddit.com/r/AI_Agents/comments/1wnuqr2/one_simple_agent_task_could_cost_more_than_you/ | — |
+| C04 | c | 上限課金 | ループ防止のハードキャップを欲している | $20 in an afternoon | — | — | 2026-09-23 | 同上コメント | — |
+| C05 | c | AI社員SaaS | 成長作業を常時回すAI社員に月$30–100を検討 | $30–100/month（提案側） | — | — | 2026-09-17 | https://www.reddit.com/r/SaaS/comments/1wixw46/would_you_pay_for_an_ai_employee_that_actually/ | — |
+| C06 | c | MCPデータ | 有料プランなのにMCP経由が遅延データ | なし | — | — | 2026-09-15 | https://www.reddit.com/r/TradingView/s/YdLGScnICy | — |
+| C07 | c | 既存SaaSの二重課金 | Salesforce hosted MCPがFlex Credits追加課金 | なし | — | — | 2026-09-22 | https://www.reddit.com/r/salesforce/comments/1wmxng1/salesforce_is_going_to_charge_for_their_hosted/ | — |
+| C08 | c | エージェント自己払い | ウォレットを持たせた自律支払いへの恐怖 | なし | — | — | 2026-09-20 | https://www.reddit.com/r/learnAIAgents/comments/1wl57ci/ai_agents_autonomously_paying_for_apis_when_they/ | — |
+| C09 | c | 有料MCP需要検証 | キーなし従量払いに需要があるか未決 | なし | — | — | 2026-06-08 | https://www.reddit.com/r/mcp/comments/1u0plxc/would_agents_actually_pay_per_call_for_their_own/ | — |
+| C10 | c | 支出監査 | エージェントの購入承認と監査ログが欲しい | なし | — | — | 2026-06-08 | https://www.reddit.com/r/hermesagent/comments/1u0fe9w/gave_hermes_a_spending_budget_it_cant_exceed/ | — |
+| C11 | c | 医療介護外注 | 予約・問診・記録・施設内問い合わせを外注したい需要 | なし | — | — | 2026-06-23 | https://note.com/ripla_business/n/n85bb15ff7a6a | — |
+| C12 | c | 内製vs外注 | 「内製か外注か」問い合わせが日常的 | なし | — | — | 2026-04-17 | https://note.com/ripla_business/n/n4f12212b5684 | — |
+| C13 | c | LLM費用上限 | 契約で月次API上限と通知を求める | 月20万〜100万円以上のAPI費用ケース | — | — | 2026-04-17 | https://note.com/ripla_business/n/n1cfa5bbe9cbb | — |
+| C14 | c | EC海外CS | 時差返信と外注費を消したい | 外注換算月18万円 | — | — | 2026-09-19 | https://note.com/tnioj_resale/n/n116af01a86db | — |
+| C15 | c | 誤操作監視コスト | 書き込みMCPの目視確認を年6万と計算 | 年6万円 | — | — | 2026-09-22 | https://note.com/tnioj_resale/n/n7eb704aedb69 | — |
+| C16 | c | 税理士事務所AI | freee Agent Hub月5,000円+従量の費用感を比較したい | 月5,000円/ID + 従量 | — | — | 2026-09-26 | https://note.com/kuchinakatax/n/nef2661467662 | — |
+| C17 | c | 営業前工程 | リスト作成〜提案書を時短したいがレビューは手放せない | 2.5時間→約20分 | — | — | 2026-05-21 | https://note.com/oritaka_g1st/n/n8e9dcdf94694 | — |
+| C18 | c | 調達エージェント | 未使用SaaS席と契約更新の監視を継続したい | xAI側主張 $100K savings（自社規模。一般化しない） | — | — | 2026-09-09 | https://www.indiehackers.com/post/an-ai-agent-found-100k-in-saas-waste-in-its-first-week-but-the-checks-it-runs-take-an-afternoon-edefdac318 | — |
+| C19 | c | オフセッション課金 | AIクレジット切れを保存カードで自動チャージしたい | $10 / 1,000 credits | — | — | 2026-09-24 | https://www.indiehackers.com/post/story-behind-building-an-off-session-charging-08b7180bbb | — |
+| C20 | c | 専門家AIツイン | 既存コンテンツを有料Q&Aにしたい作り手側需要 | なし | — | — | 2026-09-23 | https://www.indiehackers.com/post/i-m-building-padro-so-experts-can-sell-access-to-what-they-know-abe78fd368 | — |
+| C21 | c | no-code課金疲れ | 輸出できない月額ツールよりコード生成エージェントへ | ~$20/mo | — | — | 2026-09-16 | https://x.com/FaztTech/status/2100043977814687758 | — |
+| C22 | c | シューマツ案件 | 生成AI×営業自動化の業務委託単価が公開 | 月28万〜80万円、月40〜80時間 | — | — | 2026-09-08案件 / 検証2026-09-13 | https://shuuumatu-worker.jp/projects/18912 | — |
+
+#### (c) 原文引用
+
+- C01: "i'd pay for an agent that says ‘i don't know what you meant by that’ before it changes twelve files."
+- C02: "The AI agent I’d pay for would: Chase missing invoices / Match receipts to invoices / Flag duplicate payments / Explain cashflow gaps"
+- C03: "I don’t mind paying for API usage. I mind starting with one request and ending with a surprise bill."
+- C04: "i'd rather have it fail gracefully and ping me than burn through $20 in an afternoon chasing its own tail."
+- C05: "At what monthly price would this become an obvious purchase for you?"
+- C06: "I’d love to be able to access the live data feed through the MCP since it’s already included with my subscription."
+- C07: "we cannot pay for SF license, Flex Credit and AI Tokens."
+- C08: "the scary bit is an agent with a funded wallet deciding on its own that some call is worth paying for. ... i'd want a hard per-task spend cap wired in before handing any agent the keys."
+- C09: "today it's mostly humans installing it and funding the wallet — I haven't seen agents autonomously discover-and-pay at any real scale yet."
+- C10: "the one thing that kept making me nervous was letting it spend autonomously."
+- C11: "予約対応、問診補助、記録作成補助、介護記録検索、請求事務、施設内問い合わせ対応など、AIに任せる範囲を明確にする必要がある。"
+- C12: "「うちは内製にすべきか、外注すべきか」という問い合わせを、日々受けます。"
+- C13: "月次のAPI費用が20万円〜100万円以上になるケースも実際に起きています。"
+- C14: "これを時給2,000円で外注すれば月18万円かかる計算になります。"
+- C15: "相場の時給2,000円で1日5分のチェックを毎日積むと、月5,000円、年間で6万円になります。"
+- C16: "料金は月5,000円（1ID）です。5,000円分のAIの利用枠が含まれていて、超えた分は従量課金になります。"
+- C17: "1社あたりの商談前工程にかかる時間が平均2.5時間 → 約20分に短縮されました。" / 「以下の3点は現時点では人間のレビューが必須」
+- C19: "Once a customer runs out of credits, they want to charge them $10 and add 1,000 credits to their account."
+- C20: "If someone has already spent years creating useful content and building an audience, Padro gives them a new way to earn from it without adding more calls"
+- C21: "Pagar una suscripción mensual por algo que no puedes exportar, migrar ni depurar no es buena idea."
+
+### (d) 新しい販路・決済での実取引
+
+| id | 種別 | カテゴリ | 要約1行 | 数値の主張 | 証拠 | 人手の関与 | 日付 | URL | 反例id |
+|---|---|---|---|---|---|---|---|---|---|
+| D01 | d | x402実決済 | Q+Payが「デモではない」初回エージェント決済を主張 | 実HTTP 402 + tx hash（金額本文なし） | B（スクショ主張） | 「No human clicks」 | 2026-09-27 | https://x.com/useQPay/status/2104054695673356569 | B05 |
+| D02 | d | x402 API課金 | PriorsがエージェントからのAPI課金を当日可能と案内 | 金額未記載。ガス代を最初20件肩代わり | C | 不明 | 2026-09-27 | https://x.com/priors_trade/status/2104050162632950149 | B11 |
+| D03 | d | x402パスポート | Meridian 0.4.0がエージェント向け有料パスポート | $0.15 USDC deep / singles ~$0.04 | C | 不明 | 2026-09-23 | https://www.indiehackers.com/post/shipped-meridian-0-4-0-deep-passport-for-agents-763d54e04a | B05 |
+| D04 | d | ニュース従量 | Acta Marketsがエージェント読了課金を開始主張 | 金額未記載。USDG over x402 | C | 不明 | 2026-09-27 | https://x.com/actamarkets/status/2104050395152519556 | B11 |
+| D05 | d | メモリAPI | Agent402.Toolsがメモリ書き込みを従量販売 | $0.001 / write | C | 不明 | 2026-09-26 | https://x.com/Agent402Tools/status/2103977561730814193 | B11 |
+| D06 | d | Apify分配 | Storeが開発者へ継続分配（A23と同一事実） | $1.6M/月 または 9月単月$563k | A | 保守あり | 2026 | https://apify.com/partners/actor-developers | B11 |
+| D07 | d | Apify×x402 | Store API Actorがx402支払い対応を明記 | 単価 from $0.01 / 1,000 returned | B（商品頁） | 不明 | 更新2026-09-26 | https://apify.com/johnvc/store-actor-intelligence-api | B05 |
+| D08 | d | Base x402窓 | Baseが30日3.1M tx / $1.2Mと発表 | 3.1M tx、$1.2M、sellers+23%、buyers+37% | A（ネットワーク発表） | 該当せず | 2026-05-29 | https://cryptobriefing.com/agent-payments-growth-x402/ | B11 |
+| D09 | d | オンチェーン実注文 | LLMスキャナーがオンチェーンで少数決済 | 3 USDT、sub-cent 402、8.1 XNO | C | 人が観測 | 2026-09-19 | https://www.indiehackers.com/post/i-let-an-ai-agent-run-my-llm-security-products-whole-sales-loop-for-30-days-here-s-what-actually-broke-e16f092b52 | B05 |
+| D10 | d | AIクレジット自動課金 | Kelviqがオフセッション$10チャージを実装・需要あり | $10 / 1,000 credits。他社からも同様リクエスト | C | 決済プロダクト側の実装 | 2026-09-24 | https://www.indiehackers.com/post/story-behind-building-an-off-session-charging-08b7180bbb | C19 |
+| D11 | d | クローズド網のエージェント決済 | Visa×OpenAI、Mastercard Agent Pay、AWS CloudFront x402が同週出荷 | 個別GMVは当該記事になし | A（発表事実） | 該当せず | 2026-06-10〜15 | https://majormatters.co/p/state-of-the-stack-agentic-commerce-2026 | B14 |
+| D12 | d | x402累計 | Keyrock等集計で年176M tx / $73M | $73M・176M txs、平均~$0.31。ただしエージェント真性は0.6–7.5%とのTRM | A（計測レポート） | 該当せず | 2026-09-04 / 2026-09-09 | https://agenticfinancegraph.com/x402-protocol-how-ai-agents-pay-with-usdc-statistics | B11 |
+
+---
+
+## 反例なし（探索語）
+
+- A03の個別社（Rezi / Comp AI / PROSP）の失敗一次: 探索語 `Rezi shutdown` `Comp AI churn 2026` → 未発見
+- A05 ParakeetAIの停止報告: 探索語 `ParakeetAI refund OR banned` → 未発見
+
+---
+
+## カテゴリ別の温度
+
+Dは集計から除外。増減は「直近90日に一次が増えたか」の観察で、定量指数ではない。
+
+| カテゴリ | 収益主張の数(A/B) | 失敗報告の数 | 直近90日の増減 | 代表的な痛み（原文最大3） |
+|---|---|---|---|---|
+| 画像/単機能SaaS | A0 / B1 | 1（急落ゼロ化） | 横ばい（既存ソロの再掲が主） | この層の痛み一次は薄い |
+| 公開検証済みAIスタートアップ集合 | A1 / B0 | 1（マージン悪化報道） | 5月レポート以降の個別更新は疎 | "Token usage growth + reliance on the quality of frontier models should heavily eat into your margins?" |
+| Upwork/営業エージェントSaaS | A0 / B0 | 2 | 7–9月にIH事例増 | "A bad AI call can cost you a real customer." |
+| 会話・予約・店舗CS | A0 / B0 | 1（オンボード重い） | 春のReddit事例が残る程度 | "I received the wrong product. What should I do?" / "Can I speak to someone?" |
+| 自律エージェントで商品販売 | A0 / B1 | 6 | 6–9月に失敗一次が集中 | "Interactions do not equal income." |
+| コンテンツ自動量産 | A0 / B0 | 2 | 9月に日本語失敗一次 | 「売れてはいるのですが、6か月で4件。」「商品が悪いのではなく、見られていない。」 |
+| 受託/分数AI Ops | A0 / B0 | 1（コスト暴走） | 安定して少数 | 「LLM API費用は月20万〜100万円以上になる場合があり」 |
+| エージェント決済（x402/MCP/Apify） | A3 / B2 | 3 | 9月に実装投稿急増、出来高の解釈は分裂 | "i'd want a hard per-task spend cap wired in before handing any agent the keys." |
+| 大手エージェント製品 | A1 / B0 | 2（封鎖・マージン） | 9月に執行とマージン話題 | "the return rate for AI-purchased products is probably much higher" |
+
+---
+
+## 規約・執行の動き
+
+1. 2026-04-01 — Apify、新規レンタルActor停止。2026-10-01に残存レンタルをpay-per-usageへ移行予定。MCP検索からレンタル除外。 https://use-apify.com/docs/what-is-an-apify/apify-actors
+2. 2026-06-10前後 — VisaがOpenAI体験へトークン化決済、Mastercard Agent Pay発表。 https://majormatters.co/p/state-of-the-stack-agentic-commerce-2026
+3. 2026-06-15 — AWSがCloudFrontエッジでx402マネタイズを出荷。同上
+4. 2026-07-30 — AnuNeko永続停止発表（7/29 PST）。 https://openai-hub.com/news/1271/
+5. 2026-08-09 — ChatGPT Atlas停止、機能をChatGPTへ吸収。 https://techcrunch.com/2026/09/15/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/
+6. 2026-09-09頃 — AmazonがMeta Museのamazon.comショッピングをブロック（HN/報道）。 https://news.ycombinator.com/item?id=49789982
+7. 2026-09-09 — MetaがStilla買収発表（エージェントスタートアップ）。 https://tooldirectory.ai/ai-graveyard
+8. 2026-09-15 — TechCrunchがRelay停止を含むAI墓地を更新。 https://techcrunch.com/2026/09/15/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/
+9. 2026-09-22 — Notion Mail停止。エージェント経由利用が過半との説明。同上 / ToolDirectory
+10. 2026-09-22頃 — Salesforce hosted MCPをAgent登録+Flex Credits課金へ。既存は更新時に移行。 https://www.reddit.com/r/salesforce/comments/1wmxng1/salesforce_is_going_to_charge_for_their_hosted/
+
+---
+
+## 次段への観察メモ（判定ではない）
+
+母集団から外す: A32, A26, A27, A28（D）。A21は孫引き。A25は [未検証]。
+
+自走度の観察材料として残っている群:
+
+- 実験群（売上は小さいかゼロ）: A13, A14, B02, B03, B04, B05, B06
+- 「人が配布・人がオンボード、課金は仕組み」群: A07, A11, A23
+
+---
+
+## 使った検索語
+
+### 日本語
+
+- AIエージェント 収益
+- 自律AI 稼ぐ
+- AIがほぼ自走
+- 売上0 エージェント
+- 収益化停止 AI
+- 凍結 BAN AI
+- 月額払っても
+- 外注先 探して AIエージェント
+- 有料MCP
+- x402 支払い
+- site:note.com AIエージェント 収益
+- site:zenn.dev 自走 0円
+- 206件営業
+- GCP 焼き
+- 予約 問い合わせ AI
+
+### English
+
+- "autonomous AI agent" revenue
+- "I am an autonomous AI agent"
+- "made $0" agent
+- agent banned OR shutdown 2026
+- "I'd pay" AI agent
+- "would pay for an AI"
+- x402 paid OR settled
+- "paid MCP"
+- "Apify Store" payout
+- site:indiehackers.com AI agent MRR
+- site:news.ycombinator.com "AI agent" revenue
+- ChatGPT app revenue
+- agent marketplace sale
+- "off-session charging" AI credits
+
+---
+
+## 取りこぼし
+
+- 30件の「ほぼ自走で稼いでいる」A/Bは未達。期間内一次のA/Bはプラットフォーム総額・一部スクショ・公開集合データに偏る。
+- 日本語Xの円金額スクショ一次が、講座宣伝・投資ポストに埋もれ件数を取れなかった。
+- YouTube一次（収益化画面、BAN通知動画）は未収集。
+- ChatGPTアプリ / GPT Store / 有料MCPの公式売上ランキング一次ダッシュボードは未発見。
+- Open Startup個別接続（Rezi等）の生ダッシュボードURLは未確認。集計記事経由。
+- Indie HackersのIH+有料本文は途中切断あり。人手時間の全文が取れない件あり。
+- r/Entrepreneur、r/juststart、Qiita、Product Huntレビューはほぼ未踏。
+- Felix / Kelly Claude の一次ダッシュボードはBase紹介の孫に近く [未検証]。
+- 生存者バイアス対策の失敗ペアは同一プロダクトではないことが多い。

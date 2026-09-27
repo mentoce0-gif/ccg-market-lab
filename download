@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.env
+*.sqlite-journal
+.DS_Store
+# 個人情報・本人確認書類は置かない
+*.pdf
