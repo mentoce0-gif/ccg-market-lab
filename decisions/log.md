@@ -23,3 +23,5 @@
 | U-004 | 同時公開のルール | 同上 | Shun |
 | U-005 | 同時 LIVE の上限を、静的な商品では5本に緩めるか | Codex の意見待ち | Shun |
 | U-006 | Grok の直結と毎日 07:30 JST SESSION-END を仕様に明記するか | 2026-09-27 夜に実際に直結済み | Shun |
+| U-007 | 2本目の販路 | Claude 案：Etsy を主にし、2本目は1つだけ、需要記録の「買う場所」の件数と Etsy での到達の実績で選ぶ。G1（10/18）に判断。[AGENDA-001](../discussion/AGENDA-001_販路と速度.md) | Shun（G1） |
+| U-008 | Grok・ChatGPT の定時アクションの書き戻し先 | 各自の回答待ち（PR・Issue コメント・ファイル）。書き戻せない場合は Shun が運ぶ量を最小にする形。U-006 と関連。[AGENDA-001](../discussion/AGENDA-001_販路と速度.md) §4 | Shun |
