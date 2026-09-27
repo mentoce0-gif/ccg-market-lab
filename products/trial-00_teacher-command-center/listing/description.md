@@ -15,7 +15,7 @@ WHAT'S INCLUDED
 - Assignments: up to 60 assignments. Each one is due at the end of its unit unless you type a date
 - Gradebook: type a score, M for missing or EX for excused. Past-due blanks can count as missing (you choose on Setup)
 - Standings: each student's grade, turn-in rate and a performance index with rank and percentile, plus an optional curved grade if your school allows relative grading
-- Student Report: pick a student and get a one-page summary for conferences, with every assignment marked Submitted, Missing, Excused or Not due yet
+- Student Report: pick a student and get a one-page summary for conferences, with every assignment marked Turned in, Missing, Excused or Not due yet
 
 HOW THE LINKS WORK
 Pacing plan > assignment due dates > gradebook knows what is due > turn-in rate, missing work and grades update > dashboard and student report show the result.
