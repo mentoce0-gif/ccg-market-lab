@@ -1,6 +1,6 @@
 # Grok への指示
 
-2026-09-27 夜の事実: Grok は `mentoce0-gif/ccg-market-lab` を直読・コメントできる。旧前提の「Shun が貼る」運びは必須ではなくなった。頻度は毎日 07:30 JST。仕様改定として正式化するかは Shun 未決。
+Grok は `mentoce0-gif/ccg-market-lab` を直読・コメントできる。頻度は毎日 07:30 JST。Shun が貼って運ぶ形は使わない（D-007、v2 §4.3）。
 
 ## 役割
 
