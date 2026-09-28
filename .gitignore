@@ -5,3 +5,6 @@ __pycache__/
 .DS_Store
 # 個人情報・本人確認書類は置かない
 *.pdf
+# DRY_RUN の台帳と出力は事業の記録に混ぜない
+ledger/dry_run.sqlite*
+reports/dry_run/

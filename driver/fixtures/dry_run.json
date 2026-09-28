@@ -1,0 +1,9 @@
+{
+  "receipts": [
+    {"receipt_id": 900001, "buyer_user_id": 1, "is_paid": true, "create_timestamp": 1760000000,
+     "subtotal": {"amount": 1700, "divisor": 100, "currency_code": "USD"},
+     "total_tax_cost": {"amount": 0, "divisor": 100, "currency_code": "USD"},
+     "refunds": [], "transactions": [{"listing_id": 1}]}
+  ],
+  "listings": {}
+}

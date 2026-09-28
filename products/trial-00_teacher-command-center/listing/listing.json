@@ -1,0 +1,19 @@
+{
+  "experiment_id": "EXP-00",
+  "pre_spec": true,
+  "title": "Teacher Gradebook and Pacing Planner Spreadsheet, Missing Work Tracker, Student Report, Class Dashboard, Excel Template",
+  "price_usd": 17.00,
+  "currency": "USD",
+  "type": "digital",
+  "tags": ["teacher gradebook", "gradebook template", "grade tracker", "teacher planner", "pacing guide", "missing work", "student report", "class dashboard", "teacher spreadsheet", "excel gradebook", "google sheets", "classroom tracker", "lesson planner"],
+  "description_file": "description.md",
+  "faq_file": "faq.md",
+  "previews": ["previews/01_dashboard.png", "previews/02_pacing.png", "previews/03_gradebook.png", "previews/04_standings.png", "previews/05_student_report.png", "previews/06_setup.png", "previews/07_whats_included.png"],
+  "files_delivered": ["../Teacher_Command_Center_Blank.xlsx", "../Teacher_Command_Center_Sample.xlsx"],
+  "files_sha256": {
+    "../Teacher_Command_Center_Blank.xlsx": "279c9354026fd06803a18eb3c833f0889b2cd20a7729be9755f1e117185fad97",
+    "../Teacher_Command_Center_Sample.xlsx": "7209f75b7a0e20e8e7a78ae9e0f34f046906c81e3c7c50609ca146d45b6955f9"
+  },
+  "ai_disclosure": "This spreadsheet was designed and built with the help of AI tools (the layout, formulas and sample data were generated with AI and then checked by recalculation). The sample class is fictional.",
+  "made_by_ai_etsy_setting": "Etsy の出品フォームの「作り方」の設定でも AI の使用を示す [未検証：フォームの項目名]"
+}

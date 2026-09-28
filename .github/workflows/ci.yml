@@ -1,0 +1,21 @@
+name: ci
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  driver:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install pytest
+      - name: §14 受入テスト（ドライバ）
+        run: python -m pytest driver/tests -q
+      - name: tests/ と results/ は追記だけ
+        if: github.event_name == 'pull_request'
+        run: python scripts/check_append_only.py origin/${{ github.base_ref }}
