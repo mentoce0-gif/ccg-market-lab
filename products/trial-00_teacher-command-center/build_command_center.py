@@ -176,7 +176,7 @@ def build(path, term_start, units, asg, names, scores, asof_value="=TODAY()", cl
         ("2.  Roster: type your students (up to 40).", ft(11)),
         ("3.  Pacing: list your units with a start week and length. The timeline colors itself.", ft(11)),
         ("4.  Assignments: pick the unit for each assignment. It is due at the end of that unit unless you type a date.", ft(11)),
-        ("5.  Gradebook: enter scores. Type M for missing, EX for excused. Past-due blanks count as missing.", ft(11)),
+        ("5.  Gradebook: enter scores. Type M for missing, EX for excused. Past-due blanks count as missing. A score below 0, above the points possible, or any other text turns red.", ft(11)),
         ("", None),
         ("What you get", ft(13, True)),
         ("Dashboard: class average, submission rate, students at risk, grade spread, workload per week.", ft(11)),
@@ -516,6 +516,10 @@ def build(path, term_start, units, asg, names, scores, asof_value="=TODAY()", cl
                                                     fill=PatternFill("solid", fgColor="FBE0C6"), font=Font(color="8A3B00", bold=True)))
     g.conditional_formatting.add(gridr, FormulaRule(formula=[f'UPPER({S1}{GB_FIRST})="EX"'], font=Font(color="8A949B", italic=True)))
     g.conditional_formatting.add(gridr, FormulaRule(
+        formula=[f'OR(AND(ISNUMBER({S1}{GB_FIRST}),OR({S1}{GB_FIRST}<0,AND({S1}$7>0,{S1}{GB_FIRST}>{S1}$7))),'
+                 f'AND(ISTEXT({S1}{GB_FIRST}),UPPER({S1}{GB_FIRST})<>"M",UPPER({S1}{GB_FIRST})<>"EX"))'],
+        fill=PatternFill("solid", fgColor="E8B4AC"), font=Font(color="7A1A10", bold=True), stopIfTrue=True))
+    g.conditional_formatting.add(gridr, FormulaRule(
         formula=[f'AND({S1}{GB_FIRST}="",{S1}$8=1,$B{GB_FIRST}<>"")'], fill=PatternFill("solid", fgColor="FDF1E7")))
     g.conditional_formatting.add(f"C{GB_FIRST}:D{GB_LAST}", FormulaRule(
         formula=[f"AND(ISNUMBER($C{GB_FIRST}),$C{GB_FIRST}<$C$3)"],
@@ -548,9 +552,9 @@ def build(path, term_start, units, asg, names, scores, asof_value="=TODAY()", cl
         calc(sd.cell(row=r, column=4), f'=Gradebook!E{gr}', "0%", center=True)
         calc(sd.cell(row=r, column=5), f'=Gradebook!G{gr}', "0%", center=True)
         calc(sd.cell(row=r, column=6),
-             f'=IF(B{r}="","",IF(AND(NOT(ISNUMBER(C{r})),NOT(ISNUMBER(D{r}))),"",'
+             f'=IF(B{r}="","",IF(AND(NOT(ISNUMBER(C{r})),NOT(ISNUMBER(D{r}))),"",ROUND('
              f'(IF(ISNUMBER(C{r}),Setup!$B$22*C{r},0)+IF(ISNUMBER(D{r}),Setup!$B$23*D{r},0))/'
-             f'(IF(ISNUMBER(C{r}),Setup!$B$22,0)+IF(ISNUMBER(D{r}),Setup!$B$23,0))))', "0.0%", True, True)
+             f'(IF(ISNUMBER(C{r}),Setup!$B$22,0)+IF(ISNUMBER(D{r}),Setup!$B$23,0)),9)))', "0.0%", True, True)
         calc(sd.cell(row=r, column=7), f'=IF(ISNUMBER(F{r}),RANK(F{r},{idx},0),"")', "0", center=True)
         calc(sd.cell(row=r, column=8),
              f'=IF(ISNUMBER(F{r}),IF(COUNT({idx})<=1,1,SUMPRODUCT(--({idx}<F{r}))/(COUNT({idx})-1)),"")', "0%", center=True)
@@ -744,7 +748,7 @@ def build(path, term_start, units, asg, names, scores, asof_value="=TODAY()", cl
         sr.cell(row=r, column=6, value=f'=IF(OR(A{r}="",{k}=""),"",IF(INDEX(Gradebook!{col}${GB_FIRST}:{col}${GB_LAST},{k})="","",INDEX(Gradebook!{col}${GB_FIRST}:{col}${GB_LAST},{k})))')
         sr.cell(row=r, column=7, value=f'=IF(OR(NOT(ISNUMBER(F{r})),N(E{r})=0),"",F{r}/E{r})')
         sr.cell(row=r, column=7).number_format = "0%"
-        sr.cell(row=r, column=8, value=f'=IF(OR(A{r}="",{k}=""),"",IF(ISNUMBER(F{r}),"Turned in",IF(UPPER(F{r})="EX","Excused",'
+        sr.cell(row=r, column=8, value=f'=IF(OR(A{r}="",{k}=""),"",IF(ISNUMBER(F{r}),"Submitted",IF(UPPER(F{r})="EX","Excused",'
                                           f'IF(OR(UPPER(F{r})="M",Assignments!I{ar}=1),"Missing","Not due yet"))))')
         for c in range(1, 9):
             cell = sr.cell(row=r, column=c)
