@@ -9,7 +9,7 @@
 - 販路：Etsy（英語・デジタルダウンロード）。店名 QuietColumnsStudio。Payoneer は再登録を済ませ、書類の審査中（2026-09-29 00:04 JST 時点。Payoneer の表示では通常2営業日、結果はメールで届く）。
 - 試行の順番（D-008）：試行1＝#0、試行2の本命＝CAND-01 の作り替え版、CAND-02 は48時間ゲートを通れば3本目。CAND-03 は保留。
 - 出品（D-009）：Shun が1件ずつ確認して承認したものだけを公開する。委任はしない。
-- 試行 #0：Teacher Command Center v2（`pre_spec`）。run2 で自動テストの S0〜S2 は0件。手動の確認（Google スプレッドシート）が未実行なので、T3 はまだ合格ではない（[run2](results/trial-00/2026-09-28_run2.md)）。
+- 試行 #0：Teacher Command Center v2（`pre_spec`）。run2 で自動テストの S0〜S2 は0件。Shun の Google スプレッドシートでの確認も問題なし → **T3 合格（暫定）**（[run2](results/trial-00/2026-09-28_run2.md)、[手動の確認](results/trial-00/2026-09-29_manual1.md)）。次は T4（掲載一式を A4 で Shun が承認）。
 - Grok はリポジトリに直結し、毎日 07:30 JST に Issue #1 へ SESSION-END を書く（D-007）。
 - ChatGPT は毎日 07:45 JST の結果を Issue のコメントに書き戻す（D-010）。書き込めるかは初回で確かめる。
 - Day 1 = 2026-10-05、Day 90 = 2027-01-02。
