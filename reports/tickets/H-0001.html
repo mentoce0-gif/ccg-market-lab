@@ -1,0 +1,29 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><title>H-0001</title>
+<style>@page{size:A4;margin:14mm}body{font-family:"Noto Sans JP","Noto Sans CJK JP",sans-serif;font-size:9.5pt;color:#111;background:#fff;line-height:1.45;margin:0}
+h1{font-size:14pt;margin:0 0 3mm}p.lead{margin:0 0 3mm}table{border-collapse:collapse;width:100%}th,td{border:1px solid #999;padding:1.8mm 2.4mm;vertical-align:top;text-align:left}
+th{width:34mm;background:#f2f2f2;font-weight:600}ol,ul{margin:0;padding-left:5mm}li{margin:0.4mm 0}.sign{margin-top:4mm}.small{font-size:8.5pt;color:#333}</style></head><body>
+<h1>承認・操作の依頼（H-0001：是正の承認と #0 の手動確認）</h1>
+<p class="lead">2026-09-28　起票：Claude　／　決定済み：D-008 試行の順番、D-009 出品は1件ずつ承認、D-010 ChatGPT は Issue に書き戻す（チャットでの判断を記録）</p>
+<table>
+<tr><th>依頼ID</th><td>H-0001</td></tr>
+<tr><th>これだけやってください</th><td><ol>
+<li><b>PR をマージ</b>（是正の規則 C-1〜C-8 と D-008〜D-010 の記録を有効にする）。</li>
+<li><b>#0 を Google スプレッドシートで開いて確認</b>：Sample を開き、Standings の総合と順位が Excel／LibreOffice 版と同じか（SS-07）。生徒の名前が架空に見えるか（RC-05）。列幅で文字が切れていないか（USE-04）。Blank は開いた時にエラー風の表示がないか（SS-03）。</li>
+<li>マージ後、<b>ChatGPT に指示を貼る</b>（<code>discussion/2026-09-28_是正対応.md</code> の枠内）。返ってきた URL を開き、Issue #1 に <code>[ChatGPT][WRITE-TEST]</code> があるか見る。</li>
+</ol></td></tr>
+<tr><th>所要時間</th><td>1：5分　2：15分 [未検証]　3：5分　（計 約25分。人手に計上）</td></tr>
+<tr><th>対象</th><td>PR（Claude が作成）／<code>products/trial-00_teacher-command-center/</code> の Blank・Sample／Issue #1</td></tr>
+<tr><th>必要な理由</th><td>1：規則の変更はマージが承認になる。2：T3 の合格には手動の S0・S1 の確認が要り、Claude の環境には Google スプレッドシートがない。3：ChatGPT が書き込めるかは、Shun のアカウントでしか確かめられない。</td></tr>
+<tr><th>要点・利点・リスク</th><td><ul>
+<li>要点：run2 で自動テストの S0〜S2 は0件（run1：S1・S2 各1件）。残る失敗は S3 の1件（数式の数。テスト側の定数が古い）。</li>
+<li>利点：2 が合格すれば #0 は T3 合格。次は掲載一式を A4 で出し、Shun の承認で公開（D-009）。</li>
+<li>リスク：2 で総合や順位が食い違えば S1。説明文の「Google Sheets で使える」を消すか、直して run3。ChatGPT が書き込めなければ、D-010 の代わりの手段（Codex の PR）に切り替える。</li>
+</ul></td></tr>
+<tr><th>選択肢</th><td>◎ 推奨：1〜3 をすべて行う<br>○ 1 だけ先に行い、2 は 10/4 まで<br>○ 是正の一部を外してマージ（外す項目を指示）</td></tr>
+<tr><th>期限</th><td>1・3：次の定時（09-29 07:30）の前が望ましい　2：2026-10-04</td></tr>
+<tr><th>未回答の時</th><td>1：Grok・ChatGPT は旧い規則のまま動く（Etsy のページの扱いが曖昧なまま）。2：#0 は公開しない。関係のない作業（CAND-01 の企画）は続ける。</td></tr>
+<tr><th>今週の人手の累計</th><td>0分（Day0 の例外枠を除く）。今夜の Payoneer 登録は例外枠に入れる</td></tr>
+</table>
+<p class="sign">回答：□ 推奨案　□ 代替案　□ その他（　　　　　　　　　　　　）　日付：　　　　　署名：Shun</p>
+<p class="small">個人情報（住民票・Payoneer の記載）はこのシート・リポジトリ・Issue に書かないでください。</p>
+</body></html>
