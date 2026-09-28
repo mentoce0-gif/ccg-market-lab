@@ -1,3 +1,5 @@
 date,minutes,role,trial_id,kind,exception_reason,is_ai_relay,note
 2026-09-27,,Shun,,exception,Etsy開店・Payoneer,no,Day0の例外枠（集計外）
+2026-09-28,30,Shun,,exception,Etsy開店・Payoneer,no,Payoneer 再登録：登録・アカウント設定は完了、書類の審査中（2026-09-29 00:04 JST 時点。表示は通常2営業日）
+2026-09-28,,Shun,TRIAL-00,calibration,,no,H-0001：#0 を Google スプレッドシートで確認（SS-07 ほか）。結果は問題なし。分数は未回答
 2026-09-28,,Shun,,relay,,yes,ChatGPT の AGENDA-001 回答（チャット版）を Claude に転記。分数は Shun が記入
