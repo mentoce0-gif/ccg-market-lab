@@ -6,7 +6,7 @@
 
 - GitHub 本体: [`mentoce0-gif/ccg-market-lab`](https://github.com/mentoce0-gif/ccg-market-lab)（**public**、2026-09-27 夜に変更。未ログインでも repo と Issues が読める）。
 - 正本の仕様：[`docs/spec/v2_skeleton.md`](docs/spec/v2_skeleton.md)。食い違いは v2 を優先する。
-- 販路：Etsy（英語・デジタルダウンロード）。店名 QuietColumnsStudio。Payoneer は 2026-09-28 夜に Shun が登録を完了する予定。
+- 販路：Etsy（英語・デジタルダウンロード）。店名 QuietColumnsStudio。Payoneer は再登録を済ませ、書類の審査中（2026-09-29 00:04 JST 時点。Payoneer の表示では通常2営業日、結果はメールで届く）。
 - 試行の順番（D-008）：試行1＝#0、試行2の本命＝CAND-01 の作り替え版、CAND-02 は48時間ゲートを通れば3本目。CAND-03 は保留。
 - 出品（D-009）：Shun が1件ずつ確認して承認したものだけを公開する。委任はしない。
 - 試行 #0：Teacher Command Center v2（`pre_spec`）。run2 で自動テストの S0〜S2 は0件。手動の確認（Google スプレッドシート）が未実行なので、T3 はまだ合格ではない（[run2](results/trial-00/2026-09-28_run2.md)）。
