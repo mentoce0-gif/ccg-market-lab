@@ -112,6 +112,7 @@ for s in range(N_STU):
     else:
         idx = ((w_over * overall if overall is not None else 0) + (w_sub * submit if submit is not None else 0)) / \
               ((w_over if overall is not None else 0) + (w_sub if submit is not None else 0))
+        idx = round(idx, 9)  # the workbook rounds the index to 9 decimals so float noise cannot split ties
     students.append(dict(row=s, name=name, overall=overall, submit=submit, idx=idx, missing=missing))
 
 vals = [x["idx"] for x in students if x["idx"] is not None]
@@ -175,7 +176,7 @@ if x:
         if not a:
             continue
         v = G.cell(row=GB_FIRST + x["row"], column=SC1 + i).value
-        exp = "Turned in" if isinstance(v, (int, float)) else ("Excused" if isinstance(v, str) and v.upper() == "EX" else
+        exp = "Submitted" if isinstance(v, (int, float)) else ("Excused" if isinstance(v, str) and v.upper() == "EX" else
                                                                 ("Missing" if (isinstance(v, str) and v.upper() == "M") or a["isdue"] else "Not due yet"))
         chk(f"report {i + 1}", exp, R.cell(row=15 + i, column=8).value)
 
