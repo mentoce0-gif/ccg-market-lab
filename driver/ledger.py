@@ -8,7 +8,8 @@ from datetime import date, datetime, timedelta
 from pathlib import Path
 
 from . import config as C
-from .control import engage_stop, open_ticket, quarantine_listing, require_allowed, require_not_stopped
+from .control import (NotApproved, engage_stop, open_ticket, quarantine_listing, require_allowed,
+                      require_listing_approval, require_not_stopped)
 from .db import audit, now_iso, tx
 
 
@@ -172,14 +173,19 @@ def refresh_listing(conn, client, listing_id, on_date: date) -> None:
         conn.execute("UPDATE listing SET has_digital_file=? WHERE listing_id=?", (1 if files else 0, listing_id))
 
 
-# ------------------------------------------------------------------ 公開（§14 #12）
-def publish(conn, client, listing_id: str, *, gates_passed: list[str], fmt: str, now: datetime) -> str:
-    """停止スイッチと委任を確かめ、意図を先に記録してから公開する。再起動しても二重に公開しない。"""
+# ------------------------------------------------------------------ 公開（§14 #12、#15）
+def publish(conn, client, listing_id: str, *, gates_passed: list[str], fmt: str, bundle: dict, now: datetime) -> str:
+    """停止スイッチ・権限の範囲・Shun の承認（D-009）を確かめ、意図を先に記録してから公開する。
+    承認は掲載一式のハッシュで照合する。承認の後に中身が変われば公開しない。再起動しても二重に公開しない。"""
     lst = conn.execute("SELECT l.*, v.price_cents FROM listing l JOIN variant v ON v.variant_id=l.variant_id "
                        "WHERE listing_id=?", (listing_id,)).fetchone()
     key = f"publish:{listing_id}:{lst['variant_id']}"
     require_not_stopped(conn, f"listing:{listing_id}", f"experiment:{lst['experiment_id']}")
     require_allowed(conn, "publish_listing", {"price_cents": lst["price_cents"], "format": fmt, "gates_passed": gates_passed}, now)
+    if bundle.get("price_cents") != lst["price_cents"] or (lst["file_sha256"] and bundle.get("file_sha256") != lst["file_sha256"]):
+        audit(conn, "driver", "publish_listing", "denied", f"掲載一式と台帳の価格・納品ファイルが不一致 {listing_id}", now)
+        raise NotApproved(f"{listing_id} の掲載一式が台帳の価格・納品ファイルと一致しない")
+    require_listing_approval(conn, listing_id, lst["variant_id"], bundle, now)
     intent = conn.execute("SELECT status FROM publish_intent WHERE idem_key=?", (key,)).fetchone()
     if intent and intent["status"] == "done":
         return "already"

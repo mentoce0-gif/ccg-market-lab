@@ -1,2 +1,3 @@
 date,minutes,role,trial_id,kind,exception_reason,is_ai_relay,note
 2026-09-27,,Shun,,exception,Etsy開店・Payoneer,no,Day0の例外枠（集計外）
+2026-09-28,,Shun,,relay,,yes,ChatGPT の AGENDA-001 回答（チャット版）を Claude に転記。分数は Shun が記入

@@ -1,4 +1,4 @@
-"""v2 §14 ドライバの受入テスト（Etsy 版）。番号は §14 の表に対応する。
+"""v2 §14 ドライバの受入テスト（Etsy 版、15項目）。番号は §14 の表に対応する。
 試験のデータは一時的な DB だけに入れ、事業の台帳には入れない。"""
 import json
 import threading
@@ -8,8 +8,8 @@ import pytest
 
 from driver import config as C
 from driver.budget import BudgetExceeded, reserve, used
-from driver.control import (NotAuthorized, Stopped, grant, open_ticket, record_test_result, ticket_outcome,
-                            transition)
+from driver.control import (NotApproved, NotAuthorized, Stopped, approve_listing, grant, open_ticket,
+                            record_test_result, ticket_outcome, transition)
 from driver.db import connect, init
 from driver.etsy import FakeEtsy, RetryLimitExceeded, call_with_retry
 from driver.ledger import (attach_variant, flag_customer, general_views, ingest_receipts, mark_source_changed,
@@ -46,6 +46,13 @@ def conn(tmp_path):
     c.execute("INSERT INTO listing_variant (listing_id, variant_id, from_at) VALUES ('L1',?,?)", (vid, at(2026, 10, 1).isoformat()))
     yield c
     c.close()
+
+
+def bundle(price_cents=1700, **kw):
+    b = {"title": "Teacher Command Center", "price_cents": price_cents, "description": "Made with AI assistance.",
+         "image_sha256": ["img1", "img2"], "file_sha256": "f0"}
+    b.update(kw)
+    return b
 
 
 def win(c):
@@ -234,21 +241,23 @@ def test_12_restart_mid_publish_does_not_publish_twice(conn):
     grant(conn, "A-1", 1, "publish_listing", "QuietColumnsStudio",
           {"price_min_cents": 1200, "price_max_cents": 1900, "formats": ["spreadsheet"], "requires_gates": ["T3", "T4"]},
           "A4-U002", at(2026, 10, 1).isoformat())
+    vid = conn.execute("SELECT variant_id FROM listing WHERE listing_id='L1'").fetchone()[0]
+    approve_listing(conn, "L1", vid, bundle(), basis="H-L1", approved_by="Shun", now=at(2026, 10, 8))
     client = FakeEtsy(listings={"L1": {"state": "draft"}})
     client.crash_after_activate = True
     with pytest.raises(SystemExit):
-        publish(conn, client, "L1", gates_passed=["T3", "T4"], fmt="spreadsheet", now=at(2026, 10, 9))
+        publish(conn, client, "L1", gates_passed=["T3", "T4"], fmt="spreadsheet", bundle=bundle(), now=at(2026, 10, 9))
     # 再起動
-    assert publish(conn, client, "L1", gates_passed=["T3", "T4"], fmt="spreadsheet", now=at(2026, 10, 9, 13)) == "recovered"
-    assert publish(conn, client, "L1", gates_passed=["T3", "T4"], fmt="spreadsheet", now=at(2026, 10, 9, 14)) == "already"
+    assert publish(conn, client, "L1", gates_passed=["T3", "T4"], fmt="spreadsheet", bundle=bundle(), now=at(2026, 10, 9, 13)) == "recovered"
+    assert publish(conn, client, "L1", gates_passed=["T3", "T4"], fmt="spreadsheet", bundle=bundle(), now=at(2026, 10, 9, 14)) == "already"
     assert [c for c in client.calls if c[0] == "activate_listing"] == [("activate_listing", "L1")]
     # 委任の範囲外（T4 未合格・価格帯外）は公開しない
     conn.execute("INSERT INTO listing (listing_id, experiment_id, variant_id) VALUES ('L2','EXP-00',?)",
                  (variant_for(conn, "EXP-00", 2500),))
     with pytest.raises(NotAuthorized):
-        publish(conn, client, "L2", gates_passed=["T3", "T4"], fmt="spreadsheet", now=at(2026, 10, 9))
+        publish(conn, client, "L2", gates_passed=["T3", "T4"], fmt="spreadsheet", bundle=bundle(2500), now=at(2026, 10, 9))
     with pytest.raises(NotAuthorized):
-        publish(conn, client, "L1", gates_passed=["T3"], fmt="spreadsheet", now=at(2026, 10, 10))
+        publish(conn, client, "L1", gates_passed=["T3"], fmt="spreadsheet", bundle=bundle(), now=at(2026, 10, 10))
 
 
 # 13 ---------------------------------------------------------------------------
@@ -263,7 +272,7 @@ def test_13_expired_human_deadline_is_never_approval(conn):
     assert conn.execute("SELECT COUNT(*) FROM authorization").fetchone()[0] == 0
     with pytest.raises(NotAuthorized):
         publish(conn, FakeEtsy(listings={"L1": {"state": "draft"}}), "L1", gates_passed=["T3", "T4"],
-                fmt="spreadsheet", now=at(2026, 10, 30))
+                fmt="spreadsheet", bundle=bundle(), now=at(2026, 10, 30))
 
 
 # 14 ---------------------------------------------------------------------------
@@ -276,6 +285,36 @@ def test_14_purchase_after_1800_on_final_day_counts_and_1800_report_is_provision
     assert final["last7"]["charges"] == c18["last7"]["charges"] + 1 == 2
     assert not any("期間の終わりより前" in p for p in final["provisional"])
     assert "暫定" in render_weekly(c18, [])
+
+
+# 15 ---------------------------------------------------------------------------
+def test_15_publish_requires_shun_approval_of_the_exact_bundle(conn):
+    """D-009：承認の記録が無い掲載一式、承認の後に中身が変わった掲載一式は公開しない。"""
+    conn.execute("UPDATE listing SET state='draft', file_sha256='f0'")
+    grant(conn, "A-1", 1, "publish_listing", "QuietColumnsStudio",
+          {"price_min_cents": 1200, "price_max_cents": 1900, "formats": ["spreadsheet"], "requires_gates": ["T3", "T4"]},
+          "H-policy", at(2026, 10, 1).isoformat())
+    vid = conn.execute("SELECT variant_id FROM listing WHERE listing_id='L1'").fetchone()[0]
+    client = FakeEtsy(listings={"L1": {"state": "draft"}})
+    go = lambda b, day: publish(conn, client, "L1", gates_passed=["T3", "T4"], fmt="spreadsheet", bundle=b,
+                                now=at(2026, 10, day))
+    # 承認の記録が無い
+    with pytest.raises(NotApproved):
+        go(bundle(), 9)
+    approve_listing(conn, "L1", vid, bundle(), basis="H-0003", approved_by="Shun", now=at(2026, 10, 9))
+    # 承認の後に説明・画像・納品ファイルを変えた版は、再承認まで公開しない
+    for changed in (bundle(description="Now with more tabs."), bundle(image_sha256=["img1", "imgX"]),
+                    bundle(file_sha256="f1")):
+        with pytest.raises(NotApproved):
+            go(changed, 10)
+    # 承認した版と一致すれば公開する
+    assert go(bundle(), 11) == "published"
+    assert [c for c in client.calls if c[0] == "activate_listing"] == [("activate_listing", "L1")]
+    denied = conn.execute("SELECT COUNT(*) FROM audit WHERE action='publish_listing' AND outcome='denied'").fetchone()[0]
+    assert denied == 4
+    # 根拠（A4 の ID）の無い承認は記録できない
+    with pytest.raises(NotApproved):
+        approve_listing(conn, "L1", vid, bundle(), basis="", approved_by="Shun", now=at(2026, 10, 11))
 
 
 # 補助：停止スイッチと状態遷移 -------------------------------------------------------

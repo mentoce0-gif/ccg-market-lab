@@ -13,7 +13,7 @@
 | 停止スイッチ | `control.engage_stop / clear_stop / quarantine_listing`（解除には証拠が要る） |
 | 週報の生成 | `report.build_claims → verify → render_weekly`（台帳と一致しなければ「未確認」） |
 | H票のひな形 | `report.render_ticket_a4`（A4 一枚の HTML。md で承認を求めない） |
-| §14 の受入テスト | `tests/test_acceptance_s14.py`（14項目＋補助2件） |
+| §14 の受入テスト | `tests/test_acceptance_s14.py`（15項目＋補助2件。#15 は D-009 の承認済みの版だけを公開） |
 
 ## 使い方
 
@@ -31,7 +31,7 @@ python -m driver ticket-a4 H-0001                      # reports/tickets/H-0001.
 ## まだ無いもの・未検証
 
 - Etsy API の項目名とエンドポイント（`etsy.py`）は公開仕様からの想定 [未検証]。Seller App のキーで実際に呼んで確かめる（v2 §17 #5）。
-- 出品・停止の書き込み（`HttpEtsy.activate_listing / deactivate_listing`）は、委任（U-002）の後に実装する。それまで停止は例外票で人に頼む。
+- 出品・停止の書き込み（`HttpEtsy.activate_listing / deactivate_listing`）は未実装。D-009 により、公開は Shun が承認した掲載一式（ハッシュで照合）だけ。停止の書き込みを実装するまで、停止は例外票で人に頼む。
 - 手数料は §12.1 の料率からの推定。実際の請求（Etsy の支払い台帳）で置き換える処理は、キーが届いてから。
 - 日次の定時実行（GitHub Actions の cron）は、キーを秘密に入れた後に足す。今は CI でテストだけ回す。
 - CI の「tests/・results/ は追記だけ」の検査は `scripts/check_append_only.py`。R5 のジョブに書き込み権限を与えない設定（ブランチ保護など）は Shun の操作が要る。
