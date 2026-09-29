@@ -1,0 +1,30 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><title>H-0002</title>
+<style>@page{size:A4;margin:12mm}body{font-family:"Noto Sans JP","Noto Sans CJK JP",sans-serif;font-size:9pt;color:#111;background:#fff;line-height:1.4;margin:0}
+h1{font-size:13.5pt;margin:0 0 2.5mm}p.lead{margin:0 0 2.5mm}table{border-collapse:collapse;width:100%}th,td{border:1px solid #999;padding:1.5mm 2.2mm;vertical-align:top;text-align:left}
+th{width:30mm;background:#f2f2f2;font-weight:600}ol,ul{margin:0;padding-left:4.5mm}li{margin:0.3mm 0}.sign{margin-top:3mm}.small{font-size:8pt;color:#333}
+table.q th{width:auto}table.q td.c{width:22mm;white-space:nowrap}</style></head><body>
+<h1>判断の依頼（H-0002：AGENDA-001 販路と速度のまとめ）</h1>
+<p class="lead">2026-09-28　起票：Claude　／　材料：Grok と ChatGPT の回答（<a href="https://github.com/mentoce0-gif/ccg-market-lab/issues/7">Issue #7</a>）、v2 §8.1・§15。AI どうしの賛成は証拠に数えていない。下の1の根拠は日数の計算。</p>
+<table class="q">
+<tr><th>#</th><th>決めてほしいこと（◎＝Claude の推奨）</th><th>回答</th></tr>
+<tr><td>1</td><td><b>2本目の販路（U-007）：G1 で判断する中身を変える。</b>◎ G1（10/18）では「候補1つの調査票（規約・全費用・計測の方法・人手）ができたか」と「観測日数が足りたか」だけを見る。販路の比較と追加は、#0 の14日の観測が終わってから（10/23〜10/26 以降、遅くとも G2＝11/18）。登録・支出は、別に A4 で承認を得るまでしない。<br><span class="small">理由：#0 の公開は 10/9〜10/12 なので、G1 の時点では観測が6〜9日しかなく、§8.1 の14日に届かない。前の Claude 案（G1 で Etsy の到達を見て決める）は、材料がそろう前に判断する設計だった（Claude の誤り）。</span></td><td class="c">□ 承認<br>□ 却下</td></tr>
+<tr><td>2</td><td><b>需要記録に「その人がふだん買う場所」を必須項目として足す。</b>◎ 足す。2本目の候補は、この件数から選ぶ（「先に販路を決めて需要を曲げない」）。</td><td class="c">□ 承認<br>□ 却下</td></tr>
+<tr><td>3</td><td><b>掲載ページの骨子を T1 で作り、価格のゲートも T1 に置く。</b>◎ T1 で骨子（対象者・用事・約束・対象外・価格の仮説・画像の構成）を固める → T3 で約束を満たすかを検査する → T4 で実物に合わせて確定する → Shun の承認（D-009）。受入条件は §7.1 の定型を主にする。骨子は §7.2「販売の説明」で照合する側に置く。価格ゲート：1件あたり約 ¥1,000 以上が手元に残ること（Etsy なら約 $8.5 以上）。</td><td class="c">□ 承認<br>□ 却下</td></tr>
+<tr><td>4</td><td><b>U-003（ドライバの受入テストの統一）。</b>◎ §14 の15項目を正本にする。Claude が Driver-min の5項目との対応表（試験 ID・証跡・未対応）を作り、Codex がレビューする。商品のテスト（§7）は別の層として今のまま。</td><td class="c">□ 承認<br>□ 却下</td></tr>
+<tr><td>5</td><td><b>U-004（同時公開）。</b>◎ 今の上限を保つ（新規の公開は週1本・30日で4本、同時に LIVE は3本）。同じ商品を別の販路に出す時は、新規の制作には数えず、LIVE の枠には数える（variant ID を分ける）。静的な商品で上限を5本に緩める件（§17 #9）は、G1 では材料が足りないので G2 に送る。</td><td class="c">□ 承認<br>□ 却下</td></tr>
+</table>
+<table style="margin-top:2mm">
+<tr><th>報告（判断は不要）</th><td><ul>
+<li>ChatGPT の書き戻し（D-010）：GitHub CLI で Issue に書けた（<a href="https://github.com/mentoce0-gif/ccg-market-lab/issues/1#issuecomment-5872891658">#1 の WRITE-TEST</a>）。チャットに出た「書けない」の版は古いので使わない。07:45 の定時で書けるかは 09-29 に確かめる。09-28 の 07:45 分は無かった（週報に記録する）。</li>
+<li>D-009 を仕様の公開の経路（§10.1・§15 など）に反映し、ドライバは「承認した版とハッシュが一致しなければ公開しない」（§14 #15）にした。同じ PR に入っている。</li>
+<li>未決に足した件（§17 #11、G2 で判断）：1件ずつの承認を続ける間は、L3 の「公開に人の承認が恒常的に要らない」を満たさない。承認を除いて L3 を達成と報告することはしない。</li>
+</ul></td></tr>
+<tr><th>リスク</th><td>1：2本目を始められるのは、最短でも 10/23 以降になる。調査票を作る Claude の時間が週の枠を使う。3：T1 の作業が増える（1本あたり +30分ほど [未検証]）。5：上限を保つので、90日で試せるのは最大12本（30日で4本×3）。</td></tr>
+<tr><th>所要時間</th><td>このシート：約10分 [未検証]。PR のマージ：2分。人手に数える</td></tr>
+<tr><th>期限</th><td>2026-10-11（試行 #1 の企画は 10/12 に始まる）</td></tr>
+<tr><th>未回答の時</th><td>今の v2 のまま進める（G1 で販路を判断する、掲載の下書きは T4、§14 と同時に LIVE 3本）。期限が過ぎても、承認したことにはしない。</td></tr>
+<tr><th>承認の後</th><td>Claude が v2 の改版（v2.0.6）と decisions/log.md への記録を PR にする。</td></tr>
+</table>
+<p class="sign">回答：□ すべて推奨どおり　□ 上の表で個別に回答　□ その他（　　　　　　　　　　　　）　日付：　　　　　署名：Shun</p>
+<p class="small">決まった内容はここに書き込まず、Issue #7 か PR に回答してください（個人情報は書かない）。</p>
+</body></html>

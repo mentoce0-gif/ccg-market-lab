@@ -146,6 +146,18 @@ CREATE TABLE IF NOT EXISTS view_snapshot (
   PRIMARY KEY (listing_id, on_date)
 );
 
+-- 掲載一式の承認（D-009、§14 #15）。Shun が A4 で確認した版のハッシュ。承認後に中身が変われば一致しない
+CREATE TABLE IF NOT EXISTS listing_approval (
+  listing_id     TEXT NOT NULL,
+  variant_id     TEXT NOT NULL,
+  bundle_sha256  TEXT NOT NULL,
+  basis          TEXT NOT NULL,       -- A4 承認シートの ID
+  approved_by    TEXT NOT NULL,
+  approved_at    TEXT NOT NULL,
+  revoked        INTEGER NOT NULL DEFAULT 0,
+  PRIMARY KEY (listing_id, variant_id, bundle_sha256)
+);
+
 -- 公開の意図（再起動で二重公開しないため。§14 #12）
 CREATE TABLE IF NOT EXISTS publish_intent (
   idem_key    TEXT PRIMARY KEY,

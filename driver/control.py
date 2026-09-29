@@ -1,4 +1,5 @@
 """停止スイッチ・委任・状態遷移・例外票・単一実行のロック・テスト結果の書き込み制限。"""
+import hashlib
 import json
 import sqlite3
 from datetime import datetime, timedelta
@@ -16,6 +17,10 @@ class NotAuthorized(Exception):
 
 class TransitionRefused(Exception):
     pass
+
+
+class NotApproved(NotAuthorized):
+    """掲載一式に Shun の承認が無い、または承認の後に中身が変わった（D-009）。"""
 
 
 # ------------------------------------------------------------------ 停止スイッチ
@@ -101,6 +106,43 @@ def require_allowed(conn, action: str, params: dict, now: datetime, actor: str =
         return r
     audit(conn, actor, action, "denied", json.dumps(params, ensure_ascii=False), now)
     raise NotAuthorized(f"{action} は委任の範囲外（{params}）")
+
+
+# ------------------------------------------------------------------ 掲載一式の承認（D-009、§14 #15）
+BUNDLE_KEYS = ("title", "price_cents", "description", "image_sha256", "file_sha256")
+
+
+def bundle_sha256(bundle: dict) -> str:
+    """掲載一式（タイトル・価格・説明・画像・納品ファイル）のハッシュ。A4 に載せた版と公開する版を突き合わせる。"""
+    missing = [k for k in BUNDLE_KEYS if k not in bundle]
+    if missing:
+        raise ValueError(f"掲載一式に欠けている項目：{missing}")
+    body = {k: bundle[k] for k in BUNDLE_KEYS}
+    return hashlib.sha256(json.dumps(body, ensure_ascii=False, sort_keys=True).encode()).hexdigest()
+
+
+def approve_listing(conn, listing_id: str, variant_id: str, bundle: dict, *, basis: str, approved_by: str, now=None) -> str:
+    """Shun の A4 の回答を記録する。AI の判断や期限切れからは呼ばない（§14 #13）。"""
+    if not basis:
+        raise NotApproved("承認の根拠（A4 の ID）が無い")
+    h = bundle_sha256(bundle)
+    conn.execute(
+        "INSERT OR IGNORE INTO listing_approval (listing_id, variant_id, bundle_sha256, basis, approved_by, approved_at) "
+        "VALUES (?,?,?,?,?,?)", (listing_id, variant_id, h, basis, approved_by, now_iso(now)))
+    audit(conn, approved_by, "approve_listing", "recorded", f"{listing_id}:{variant_id}:{h[:12]} basis={basis}", now)
+    return h
+
+
+def require_listing_approval(conn, listing_id: str, variant_id: str, bundle: dict, now: datetime, actor: str = "driver") -> str:
+    """公開しようとする掲載一式が、承認済みの版と同じでなければ NotApproved。拒否も監査に残す。"""
+    h = bundle_sha256(bundle)
+    row = conn.execute(
+        "SELECT basis FROM listing_approval WHERE listing_id=? AND variant_id=? AND bundle_sha256=? AND revoked=0",
+        (listing_id, variant_id, h)).fetchone()
+    if row is None:
+        audit(conn, actor, "publish_listing", "denied", f"承認の無い版 {listing_id}:{variant_id}:{h[:12]}", now)
+        raise NotApproved(f"{listing_id} の掲載一式は、承認済みの版と一致しない（D-009）")
+    return row["basis"]
 
 
 # ------------------------------------------------------------------ 状態遷移（§6）
