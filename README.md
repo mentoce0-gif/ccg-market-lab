@@ -2,11 +2,11 @@
 
 チームCCG（Claude・ChatGPT/Codex・Grok、所有者 Shun）で、AI がほぼ自走して収益を上げる事業を1つ立ち上げ、90日で「月1万円の再現性」を確かめる。このリポジトリは、3つの AI と Shun が同じ資料を読み、議論し、決定を残すための共有の場所。
 
-## 今の状態（2026-09-28 昼）
+## 今の状態（2026-10-07 夜）
 
 - GitHub 本体: [`mentoce0-gif/ccg-market-lab`](https://github.com/mentoce0-gif/ccg-market-lab)（**public**、2026-09-27 夜に変更。未ログインでも repo と Issues が読める）。
 - 正本の仕様：[`docs/spec/v2_skeleton.md`](docs/spec/v2_skeleton.md)。食い違いは v2 を優先する。
-- 販路：Etsy（英語・デジタルダウンロード）。店名 QuietColumnsStudio。Payoneer は再登録を済ませ、書類の審査中（2026-09-29 00:04 JST 時点。Payoneer の表示では通常2営業日、結果はメールで届く）。
+- 販路：Etsy（英語・デジタルダウンロード）。店名 QuietColumnsStudio。**Payoneer は未対応で、Etsy は開店していない**（2026-10-07 Shun 報告）。09-28 の申請は、別のアカウントを作ったことが原因とみられ通らなかった（原因は [未検証]）。最初のアカウントで登録をやり直す予定のまま。日本の売り手は Payoneer 経由で登録するため、開店と #0 の公開はこれ待ち。
 - 試行の順番（D-008）：試行1＝#0、試行2の本命＝CAND-01 の作り替え版、CAND-02 は48時間ゲートを通れば3本目。CAND-03 は保留。
 - 出品（D-009）：Shun が1件ずつ確認して承認したものだけを公開する。委任はしない。
 - 試行 #0：Teacher Command Center v2（`pre_spec`）。run2 で自動テストの S0〜S2 は0件。Shun の Google スプレッドシートでの確認も問題なし → **T3 合格（暫定）**（[run2](results/trial-00/2026-09-28_run2.md)、[手動の確認](results/trial-00/2026-09-29_manual1.md)）。次は T4（掲載一式を A4 で Shun が承認）。
